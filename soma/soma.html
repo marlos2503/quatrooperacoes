@@ -1,18 +1,33 @@
 <html>
 <head>
-	<title>Memory Game by viniciusmo</title>
+	<title>Aprendendo a Somar</title>
 	<script type="text/javascript" src="soma.js"></script>
   	<link  rel="stylesheet" href="soma.css">
 </head>
 <body onload="GameControl.createGame()">
 <div  id="main" class="main">
-	<div id="control">
-		<input type="button"  class="button_game" value="Verificar  " onclick="ScoreBoardGameControl.verifica()"/> 
-	</div>
-	<div id="conta">
-	</div>
-	<div id="game">
-	</div>
+       <table>
+	  <tr>
+            <th>  
+               <div id="control">
+               <input type="button"  class="button_game" value="Inicia" onclick="GameControl.createGame()"/> 
+	       </div>	
+	    </th>
+	    <th>
+	        <div id="control">
+                <input type="button"  class="button_game" value="Verificar" onclick="ScoreBoardGameControl.verifica()"/> 
+              	</div>
+            </th>
+	  </tr>
+	  <tr>                 
+	     <div id="conta"></div>
+	  </tr>
+	  <tr>             
+	     <div id="game"></div>
+	  </tr>
+	</table>
+        <div id="parcial" style="display: none;"></div>
+        <div id="resultado" style="display: none;"></div>
 </div>
 </body>
 </html>

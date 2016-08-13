@@ -1,7 +1,7 @@
 function ScoreBoardGameControl (){
 	var score = 0;
-        var v1 = 3;
-        var v2 = 5;
+        var v1 = Math.floor((Math.random() * 10) + 1); 
+        var v2 = Math.floor((Math.random() * 10) + 1); 
 	var POINT_GAME = 10;
 	var TEXT_SCORE = "Conta : "+v1+" + "+v2;
 
@@ -16,8 +16,10 @@ function ScoreBoardGameControl (){
 	this.incrementScore =  function (){
                
 		corrects++;
-                TEXT_SCORE = "Conta : "+v1+" + "+v2+" teste "+corrects;
-                document.getElementById("conta").innerHTML = corrects;
+                TEXT_SCORE = "Conta : "+v1+" + "+v2;
+                document.getElementById("conta").innerHTML = TEXT_SCORE;
+                document.getElementById("resultado").innerHTML = TOTAL_CORRECT;
+                document.getElementById("parcial").innerHTML = corrects;
 		score+= POINT_GAME;
               
 	}
@@ -30,7 +32,7 @@ function ScoreBoardGameControl (){
 }
 
 function Card(picture){
-	var FOLDER_IMAGES = 'resources/'
+	var FOLDER_IMAGES = 'figuras/'
 	var IMAGE_QUESTION  = "question.png"
 	this.picture = picture;
 	this.visible = false;
@@ -256,6 +258,16 @@ GameControl.createGame = function(){
 
 ScoreBoardGameControl.verifica = function (){
 
-                        alert("Acertou"+document.getElementById("conta").innerHTML);
-}
+
+                        if (document.getElementById("parcial").innerHTML == document.getElementById("resultado").innerHTML)
+                        {
+                            alert("Acertou");
+                        }
+                        else
+                        {
+                             alert("Tente novamente");
+                        }
+                        GameControl.createGame();
+                      
+ }
 
